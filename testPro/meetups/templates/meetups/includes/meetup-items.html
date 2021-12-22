@@ -1,0 +1,20 @@
+ <li class="meetup-item">
+    <article>
+        <div class="meetup-summary">
+            <div class="meetup-image">
+                <img src="{{ image }}" alt="{{ title }}">
+            </div>
+            <div class="meetups-details">
+                <h3>{{ title }}</h3>
+                {% if meetup_item.title == "Mainland Block Party" %}
+                    <h5>Celebrating Django's Greatness</h5>
+                {% endif %}
+                <address>{{ location }}</address>
+                <span>{{ date }}</span>
+            </div>
+        </div>
+        <div class="meetup-actions">
+            <a href="{% url 'meetup-detail' slug %}" class="btn">More Details</a>
+        </div>
+    </article>
+ </li>

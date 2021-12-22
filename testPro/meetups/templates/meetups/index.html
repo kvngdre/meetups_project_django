@@ -1,0 +1,27 @@
+{% extends 'meetups/base/base.html' %}
+
+{% load static %}
+    {% block title %}All Meetups{% endblock %}
+
+    {% block site_css %}
+        <link rel="stylesheet" href="{% static 'meetups/styles/all-meetups.css' %}">
+    {% endblock %}
+
+
+    {% block header_subtitle%}We got great meetups coming up{% endblock %}
+    {% block header_content_x %}<p>Find the one that best suits your needs</p>{% endblock %}
+
+    {% block body_content %}
+    <section>
+        <h2>Upcoming meetups</h2>
+        <ol>
+            {% for meetup_item in meetup_list %}
+                {% include 'meetups/includes/meetup-items.html' with title=meetup_item.title date=meetup_item.date image=meetup_item.image.url location=meetup_item.location slug=meetup_item.slug %}
+
+            <!--You can define variables in the 'include' tag with the 'with' keyword
+            that can be made available to the code to make it more dynamic
+            image=meetup_item.image."url" (the url is part of the properties of the object image created under the hood by django-->
+            {% endfor %}
+        </ol>
+    </section>
+    {% endblock %}
